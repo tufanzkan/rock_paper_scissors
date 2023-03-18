@@ -4,7 +4,7 @@ body{
 .cont{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     flex-wrap: wrap;
     font-size: 28px;
     font-weight: 900;
@@ -12,4 +12,21 @@ body{
     height: 50vh;
     width: 100%;
 }
+.cont2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 5vh;
+    width: 100%;
+}
+button{
+    background-color: rgb(123, 47, 47);
+    color: white;
+    border-radius: 25%;
+    padding: 10px;
+    font-size: 20px;
+    box-shadow: rgba(135, 27, 27, 0.4) 5px 5px, rgba(182, 35, 35, 0.3) 10px 10px, rgba(218, 51, 51, 0.2) 15px 15px;
+}
+
 

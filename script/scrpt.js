@@ -64,4 +64,4 @@ function plyselc(){
     }
 }
 
-war();
+object.addEventListener("click",war());   
