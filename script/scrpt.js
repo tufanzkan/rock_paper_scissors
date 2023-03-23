@@ -39,6 +39,16 @@ function war(){
             plysay++;
             alert("COMPUTER GAMİNG: PAPER   ROUND " + (index+1) + "   PLAYER WON");
         }
+        else if (plyselc()=="scissors" && compselc()=="scissors") {
+            alert("COMPUTER GAMİNG: SCISSORS   ROUND " + (index+1) + "   DRAW");
+        }
+        else if (plyselc()=="paper" && compselc()=="paper") {
+            alert("COMPUTER GAMİNG: PAPER   ROUND " + (index+1) + "   DRAW");
+        }
+        else if (plyselc()=="rock" && compselc()=="rock") {
+            alert("COMPUTER GAMİNG: ROCK   ROUND " + (index+1) + "   DRAW");
+        }
+
     }
     if (plysay > cmpsay) {
         alert("MATCH RESULT: PLAYER WON!! ");
@@ -63,5 +73,3 @@ function plyselc(){
         return "scissors";
     }
 }
-
-object.addEventListener("click",war());   
