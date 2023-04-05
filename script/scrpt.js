@@ -84,13 +84,11 @@ function play() {
 
             if (cmpsay < plysay) {
                 alert("MATCH RESULT: PLAYER WON!!");
-                console.log("aferin")
                 winner.textContent="You Win!";
             } 
             else {
                 alert("MATCH RESULT: COMPUTER WON!!");
                 winner.textContent="You Lose!";
-                console.log("mal")
             }
         }
     }    
