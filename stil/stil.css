@@ -17,8 +17,29 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    height: 5vh;
+    flex-direction: column;
     width: 100%;
+}
+.ust{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 5vh;
+    gap: 10px;
+    width: 100%;
+}
+.alt{
+    font-size: 24px;
+    margin: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color:rgba(161, 39, 39, 0.529);
+    color: white;
+    border-radius: 15px;
+    text-align: center;
 }
 button{
     background-color: rgb(123, 47, 47);

@@ -1,75 +1,97 @@
 let cmpel=["rock","paper","scissors"];
-let plyrel=null;
+const tas=document.querySelector("#tas");
+const kagit=document.querySelector("#kagit");
+const makas=document.querySelector("#makas");
 
 let cmpsay=0;
 let plysay=0;
+
+const container = document.querySelector('.alt');
+const score = document.createElement('div');
+const winner = document.createElement('div');
+
+winner.classList.add('winner');
+score.classList.add('score');
+
+container.appendChild(score);
+container.appendChild(winner);
 
 function compselc(){
 
     let randomindex=Math.floor(Math.random() * cmpel.length);
     return cmpel[randomindex];
+}   
+
+tas.addEventListener('click',wart);
+kagit.addEventListener('click',wark);
+makas.addEventListener('click',warm);
+
+function wark(){
+    
+    if (compselc()=="rock") {
+        plysay++;
+        score.textContent="Paper beats Rock Score: "+"Player-"+plysay +' ~ '+"Computer-"+cmpsay;
+    }
+    else if (compselc()=="scissors") {
+        cmpsay++;
+        score.textContent="Scissors beats Paper Score: "+"Player-"+plysay +' ~ '+"Computer-"+cmpsay;
+    }
+    else if (compselc()=="paper") {
+        score.textContent="Tie!! "+"Player-"+plysay +' ~ '+"Computer-"+cmpsay;
+    }
+    play();
+}
+function warm() {
+    
+    if (compselc()=="rock") {
+        cmpsay++;
+        score.textContent="Rock beats Scissors Score: "+"Player-"+plysay +' ~ '+"Computer-"+cmpsay;
+    }
+    else if (compselc()=="paper") {
+        plysay++;
+        score.textContent="Scissors beats Paper Score: "+"Player-"+plysay +' ~ '+"Computer-"+cmpsay;
+    }
+    else if (compselc()=="scissors") {
+        score.textContent="Tie!! "+"Player-"+plysay +' ~ '+"Computer-"+cmpsay;
+    }  
+    play();
+}
+function wart() {
+
+    if (compselc()=="paper") {
+        cmpsay++;
+        score.textContent="Paper beats Rock Score: "+"Player-"+plysay +' ~ '+"Computer-"+cmpsay;
+    } 
+    else if (compselc()=="scissors") {
+        plysay++;
+        score.textContent="Rock beats Scissors Score: "+"Player-"+plysay +' ~ '+"Computer-"+cmpsay;
+    }
+    else if (compselc()=="rock") {
+        score.textContent="Tie!! "+"Player-"+plysay +' ~ '+"Computer-"+cmpsay;
+    }
+    play();
 }
 
-function war(){
+function play() {
 
-    for (let index = 0; index < 5; index++) {
-        plyrel=prompt("lutfen kullanmak istediginiz silahı yaziniz: ");
+    if (plysay<6 || cmpsay<6) {
 
-        if (plyselc()=="rock" && compselc()=="paper") {
-            cmpsay++;
-            alert("COMPUTER GAMİNG: PAPER   ROUND " + (index+1) + "   COMPUTER WON");
-        } 
-        else if (plyselc()=="rock" && compselc()=="scissors") {
-            plysay++;
-            alert("COMPUTER GAMİNG: SCISSORS   ROUND " + (index+1) + "   PLAYER WOM");
-        }
-        else if (plyselc()=="paper" && compselc()=="rock") {
-            plysay++;
-            alert("COMPUTER GAMİNG: ROCK   ROUND " + (index+1) + "   PLAYER WON");
-        }
-        else if (plyselc()=="paper" && compselc()=="scissors") {
-            cmpsay++;
-            alert("COMPUTER GAMİNG: SCISSORS   ROUND " + (index+1) + "   COMPUTER WON");
-        }
-        else if (plyselc()=="scissors" && compselc()=="rock") {
-            cmpsay++;
-            alert("COMPUTER GAMİNG: ROCK   ROUND " + (index+1) + "   COMPUTER WON");
-        }
-        else if (plyselc()=="scissors" && compselc()=="paper") {
-            plysay++;
-            alert("COMPUTER GAMİNG: PAPER   ROUND " + (index+1) + "   PLAYER WON");
-        }
-        else if (plyselc()=="scissors" && compselc()=="scissors") {
-            alert("COMPUTER GAMİNG: SCISSORS   ROUND " + (index+1) + "   DRAW");
-        }
-        else if (plyselc()=="paper" && compselc()=="paper") {
-            alert("COMPUTER GAMİNG: PAPER   ROUND " + (index+1) + "   DRAW");
-        }
-        else if (plyselc()=="rock" && compselc()=="rock") {
-            alert("COMPUTER GAMİNG: ROCK   ROUND " + (index+1) + "   DRAW");
-        }
+        if (plysay == 5 || cmpsay == 5) {
 
-    }
-    if (plysay > cmpsay) {
-        alert("MATCH RESULT: PLAYER WON!! ");
-        
-    } else if (plysay > cmpsay) {
-        alert("MATCH RESULT: COMPUTER WON!! ");
-    }
-    else {
-        alert("MATCH RESULT: DRAW");
-    }
-}
+            tas.removeEventListener('click',wart)
+            kagit.removeEventListener('click',wark)
+            makas.removeEventListener('click',warm)
 
-function plyselc(){
-
-    if (plyrel=="rock" || plyrel=="ROCK" || plyrel=="Rock") {
-        return "rock";
-    }
-    else if (plyrel=="paper" || plyrel=="PAPER" || plyrel=="Paper") {
-        return "paper";
-    }
-    else if (plyrel=="scissors" || plyrel=="SCISSORS" || plyrel=="Scissors") {
-        return "scissors";
-    }
+            if (cmpsay < plysay) {
+                alert("MATCH RESULT: PLAYER WON!!");
+                console.log("aferin")
+                winner.textContent="You Win!";
+            } 
+            else {
+                alert("MATCH RESULT: COMPUTER WON!!");
+                winner.textContent="You Lose!";
+                console.log("mal")
+            }
+        }
+    }    
 }
